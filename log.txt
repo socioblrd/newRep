@@ -1,0 +1,11 @@
+commit 9945b5e2be49d7d4f6f976cd23ee8aa4e7a15e17 (HEAD -> master)
+Author: socioblrd <lesha.malinovski@gmail.com>
+Date:   Mon Feb 17 20:33:19 2020 +0300
+
+    add status.txt
+
+commit 79c6278f121c17bc69b7fbb61cc097803df06fc6
+Author: socioblrd <lesha.malinovski@gmail.com>
+Date:   Mon Feb 17 20:22:22 2020 +0300
+
+    add .gitignore
