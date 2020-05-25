@@ -63,42 +63,36 @@ class PostList {
         return true;
 
     }
-    addLike(id, user)
-    {
-        if(id ===undefined || user===undefined) return false;
+    addLike(id, user) {
+        if (id === undefined || user === undefined) return false;
         const index = this.indexById(id);
-        if (index  === -1) return false;
+        if (index === -1) return false;
         this.posts[index].likes.push(user);
         return true;
     }
-    deleteLike(id, user)
-    {
-        if(id ===undefined || user===undefined) return false;
+    deleteLike(id, user) {
+        if (id === undefined || user === undefined) return false;
         const index = this.indexById(id);
-        if (index  === -1) return false;
-        for( let i = 0; i < this.posts[index].likes.length; i++){ if ( this.posts[index].likes[i] === user) { this.posts[index].likes.splice(i, 1); return true;  }}
+        if (index === -1) return false;
+        for (let i = 0; i < this.posts[index].likes.length; i++) { if (this.posts[index].likes[i] === user) { this.posts[index].likes.splice(i, 1); return true; } }
     }
-    addHashtag(id,hash)
-    {
-        if(id ===undefined ||hash ===undefined) return false;
+    addHashtag(id, hash) {
+        if (id === undefined || hash === undefined) return false;
         const index = this.indexById(id);
-        if (index  === -1) return false;
+        if (index === -1) return false;
         this.posts[index].hashtags.push(hash);
         return true;
     }
-    deleteHashtag(id, hash)
-    {
-        if(id ===undefined || hash===undefined) return false;
+    deleteHashtag(id, hash) {
+        if (id === undefined || hash === undefined) return false;
         const index = this.indexById(id);
-        if (index  === -1) return false;
-        for( let i = 0; i < this.posts[index].hashtags.length; i++){ if ( this.posts[index].hashtags[i] === hash) { this.posts[index].hashtags.splice(i, 1); return true;  }}
+        if (index === -1) return false;
+        for (let i = 0; i < this.posts[index].hashtags.length; i++) { if (this.posts[index].hashtags[i] === hash) { this.posts[index].hashtags.splice(i, 1); return true; } }
     }
-    addPost(post)
-    {
+    addPost(post) {
         if (!PostList.validatePost(post)) return false;
-
-            this.posts.push(post);
-            return true;
+        this.posts.push(post);
+        return true;
     }
     editPost(id, param) {
         let clone = Object.assign({}, this.posts[this.indexById(id)]);
@@ -108,20 +102,18 @@ class PostList {
         if ('photoLink' in param) {
             clone.photoLink = param.photoLink;
         }
-        if(PostList.validatePost(clone))
-        {
-            this.posts[this.indexById(id)]=clone;
+        if (PostList.validatePost(clone)) {
+            this.posts[this.indexById(id)] = clone;
             return true;
-        }else
+        }
         return false;
     }
-    removePost(id)
-    {
-          const index = this.indexById(id);
-          if (index  === -1) return false;
-          this.posts.splice(index, 1);
-          return true;
-   }
+    removePost(id) {
+        const index = this.indexById(id);
+        if (index === -1) return false;
+        this.posts.splice(index, 1);
+        return true;
+    }
     getAllPosts() {
         return this.posts;
     }
@@ -162,13 +154,13 @@ class PostList {
     console.log("addPost");
     console.log(_posts.addPost(post21));
     console.log("addLike");
-    console.log(_posts.addLike(1,"user4"));
+    console.log(_posts.addLike(1, "user4"));
     console.log("deleteLike");
-    console.log(_posts.deleteLike(1,"user1"));
+    console.log(_posts.deleteLike(1, "user1"));
     console.log("addHashtag");
-    console.log(_posts.addHashtag(1,"hashtag3"));
+    console.log(_posts.addHashtag(1, "hashtag3"));
     console.log("deleteHashtag");
-    console.log(_posts.deleteHashtag(1,"hashtag1"));
+    console.log(_posts.deleteHashtag(1, "hashtag1"));
     console.log("All posts:");
     console.log(_posts.getAllPosts());
     console.log("editPost");
